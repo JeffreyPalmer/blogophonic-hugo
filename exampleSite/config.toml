@@ -7,14 +7,19 @@ copyright = "" # set to override the auto generated copyright using org info and
 googleAnalytics = ""
 disqusShortname = ""
 metaDataFormat = "yaml"
-pygmentsCodeFences = true
-pygmentsOptions = "linenos=table"
-# see more styles https://help.farbox.com/pygments.html
-pygmentsStyle = "friendly"
 footnoteReturnLinkContents = "&#8617;" # ↩
-# set deliberately low for testing choose your preffered number based on the blog layout you've chosen
+# set deliberately low for testing choose your preferred number based on the blog layout you've chosen
 paginate = 3
 preserveTaxonomyNames = true
+
+theme = ["blogophonic-hugo-theme"]
+
+# Highlight configuration
+# see more style https://xyproto.github.io/splash/docs/longer/all.html
+[markup]
+  [markup.highlight]
+    lineNos = true
+    style = "friendly"
 
 [params]
   orgName = "Formspree"
