@@ -53,7 +53,7 @@ matter, and the rest is automatic.
 layout: split-right
 ```
 
-![Contact Form Split Right Layout Screenshot](/blog/assets/built-in-contact-form-feature.png)
+{{< figure src="built-in-contact-form-feature.png" alt="Contact Form Split Right Layout Screenshot" >}}
 
 Both layouts display the page title and description opposite the form, and you
 can also choose to show your social icon links if you have those configured in
