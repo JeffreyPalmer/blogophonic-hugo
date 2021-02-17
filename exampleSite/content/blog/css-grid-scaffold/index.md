@@ -5,9 +5,10 @@ excerpt: "Grid is the very first CSS module created specifically to solve the la
 date: 2019-07-02
 author: "Eric Anderson"
 draft: false
-images:
-- /blog/assets/css-grid-thumbnail.png
-- /blog/assets/css-grid-cover.png
+resources:
+- src: "css-grid-thumbnail.png"
+  name: "thumbnail"
+- src: "css-grid-cover.png"
 series:
 - Getting Started
 tags:

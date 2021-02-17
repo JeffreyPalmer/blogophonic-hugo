@@ -5,9 +5,10 @@ excerpt: "Building this static site generator theme was the first time I used an
 date: 2019-07-03
 author: "Eric Anderson"
 draft: false
-images:
-  - /blog/assets/tachyons-thumbnail.png
-  - /blog/assets/tachyons-logo-script-feature.png
+resources:
+- src: "tachyons-thumbnail.png"
+  name: thumbnail
+- src: "tachyons-logo-script-feature.png"
 series:
   - Getting Started
 tags:
@@ -18,7 +19,7 @@ categories:
 layout: single
 ---
 
-![Tachyons Logo Script](/blog/assets/tachyons-logo-script-feature.png)
+![Tachyons Logo Script](tachyons-logo-script-feature.png)
 
 ## [Tachyons](http://tachyons.io) is a design system that allows you to design gorgeous interfaces in the browser with little effort.
 

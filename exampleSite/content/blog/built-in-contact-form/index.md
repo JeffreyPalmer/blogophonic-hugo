@@ -5,9 +5,6 @@ excerpt: "This theme has a form-to-email feature built in, thanks to the simple 
 date: 2019-07-01
 author: "Eric Anderson"
 draft: false
-images:
-  - /blog/assets/built-in-contact-form-thumbnail.png
-  - /blog/assets/built-in-contact-form-feature.png
 series:
   - Getting Started
 tags:
@@ -15,9 +12,14 @@ tags:
 categories:
   - Theme Features
 layout: single
+resources:
+- src: "formspree-logo.png"
+- src: "built-in-contact-form-feature.png"
+- src: "built-in-contact-form-thumbnail.png"
+  name: thumbnail
 ---
 
-![Formspree Logo](/blog/assets/formspree-logo.png)
+![Formspree Logo](formspree-logo.png)
 
 ## [Formspree](https://formspree.io) makes it easy to receive submissions from HTML forms on your static website.
 
