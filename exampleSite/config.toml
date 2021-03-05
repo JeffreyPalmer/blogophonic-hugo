@@ -50,6 +50,8 @@ theme = ["blogophonic-hugo-theme"]
   # show/hide social icons in site header/footer
   socialInHeader = false
   socialInFooter = false
+  # show/hide the attribution text in footer
+  attributionInFooter = true
 
 [social]
   # social accounts (username only)
