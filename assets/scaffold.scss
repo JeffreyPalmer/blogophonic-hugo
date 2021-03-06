@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // make the ad unit sticky and pad details
 .page-sidebar {
-  .ad-unit {
+  .blog-info {
     @extend .bg-#{$sidebarBgColor}, .top-0 ;
     position: -webkit-sticky;
     position: sticky;
@@ -198,13 +198,13 @@ form {
 
 // CSS GRID SCAFFOLD
 .grid-container {
-  @extend .w-100 ;
+  @extend .w-100;
 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, auto);
   grid-auto-flow: dense;
-  grid-gap: 0px;
+  gap: 0px;
   margin: 0px auto;
   max-width: 1440px;
 }
@@ -228,10 +228,10 @@ form {
 }
 .single-sidebar {
   .page-main {
-    grid-column: 1 / 5;
+    grid-column: 3 / 7;
   }
   .page-sidebar {
-    grid-column: 5 / 7;
+    grid-column: 1 / 3;
   }
 }
 
@@ -241,10 +241,10 @@ form {
     order: 1;
   }
   .page-main {
-    order: 2;
+    order: 3;
   }
   .page-sidebar {
-    order: 3;
+    order: 2;
   }
   .site-footer {
     order: 4;
