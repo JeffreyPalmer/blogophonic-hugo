@@ -30,7 +30,7 @@ Once you have added the theme as a submodule, take a look at the example `config
 
 ## Site Configuration
 
-The following site configuration options are found in the `config.toml` file at the root of the `exampleSite` Hugo site.
+The following site configuration options are found in the `config.toml` file at the root of the `exampleSite` Hugo site. You may want to copy this configuration file into your site to get started quickly.
 
 ### Font Options
 
@@ -81,6 +81,7 @@ socialInFooter = false
   twitter = "formspree"
   github = "formspree"
   medium = ""
+  linkedin = ""
 ```
 
 Social icons are available for Facebook, Instagram, YouTube, Twitter, GitHub, Medium, and LinkedIn. There are many more available if you like, we just trimmed the initial offering down to what a blog might need. To add more, just follow the same methodology we used:
