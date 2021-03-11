@@ -24,7 +24,7 @@ Unlike the original Blogophonic template, this **is** a hugo theme. To use it, a
 git submodule add https://github.com/JeffreyPalmer/blogophonic-hugo-theme.git themes/blogophonic-hugo-theme
 ```
 
-Once you have added the theme as a submodule, take a look at the example `config.toml` in `themes/blogophonic-hugo-theme/exampleSite/config.toml` to get an idea of how to configure things.
+Once you have added the theme as a submodule, take a look at the example `config.toml` in `themes/blogophonic-hugo-theme/exampleSite` to get an idea of how to configure things.
 
 **Caveat:** Most of the changes I've made (and am making) to this theme are to scratch personal itches. I'm not a theme designer, so if you choose to use this theme you'll be somewhat on your own.
 
