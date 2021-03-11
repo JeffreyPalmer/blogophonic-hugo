@@ -5,9 +5,9 @@ excerpt: ""
 date: {{ .Date }}
 author: ""
 draft: true
-images:
--  # url to thumbnail image
--  # url to feature image
+resources:
+- src: # url to thumbnail image - probably local if you're using page bundles
+  name: thumbnail
 series:
 tags:
 categories:

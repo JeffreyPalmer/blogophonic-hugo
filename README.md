@@ -16,26 +16,21 @@ A modern, beautiful, and easily configurable blog for Hugo that includes a dedic
 
 ## Usage
 
-> NOTE: blogophonic-hugo requires the `extended` version of hugo, since it relies on hugo's built-in SASS processor. As of Jan 11, 2021 `hugo-extended` is installed by default when running `brew install` however, for windows or linux users, you must ensure you've installed the extended version. Please see https://gohugo.io/getting-started/installing/.
+> NOTE: blogophonic-hugo-theme requires the `extended` version of hugo, since it relies on hugo's built-in SASS processor. As of Jan 11, 2021 `hugo-extended` is installed by default when running `brew install` however, for windows or linux users, you must ensure you've installed the extended version. Please see https://gohugo.io/getting-started/installing/.
 
-This as a full website, not a hugo theme. To use it, just clone the repo, and start hugo at the root:
+Unlike the original Blogophonic template, this **is** a hugo theme. To use it, add it as a submodule to your `themes` directory:
 
 ```
-git clone git@github.com:formspree/blogophonic-hugo.git
-cd blogophonic-hugo
-hugo server
+git submodule add https://github.com/JeffreyPalmer/blogophonic-hugo-theme.git themes/blogophonic-hugo-theme
 ```
 
-Then you can edit or discard the pages under `content`.
+Once you have added the theme as a submodule, take a look at the example `config.toml` in `themes/blogophonic-hugo-theme/exampleSite/config.toml` to get an idea of how to configure things.
 
-This repo should not be cloned into a git submodule. It's meant to be the top-level folder and includes a `content` folder with several pre-made pages.
-
-We chose to package it this way because at the time it was difficult to distribute a hugo theme with a lot of pre-made pages, images, static content, etc.
-
+**Caveat:** Most of the changes I've made (and am making) to this theme are to scratch personal itches. I'm not a theme designer, so if you choose to use this theme you'll be somewhat on your own.
 
 ## Site Configuration
 
-The following site configuration options are found in the `config.toml` file at the root of this Hugo site.
+The following site configuration options are found in the `config.toml` file at the root of the `exampleSite` Hugo site.
 
 ### Font Options
 
@@ -88,9 +83,17 @@ socialInFooter = false
   medium = ""
 ```
 
-Social icons are available for Facebook, Instagram, YouTube, Twitter, GitHub, and Medium. There are many more available if you like, we just trimmed the initial offering down to what a blog might need. To add more, just follow the same methodology we used:
+Social icons are available for Facebook, Instagram, YouTube, Twitter, GitHub, Medium, and LinkedIn. There are many more available if you like, we just trimmed the initial offering down to what a blog might need. To add more, just follow the same methodology we used:
 
 Starting with a copy of a [Tachyons Component](http://tachyons.io/components/footers/social-simple/index.html) that uses Simple Icons SVG's, we put them into a simple partial file `layouts/partials/shared/social-links.html` which controls the display.
+
+### Theme Attribution
+If you have a separate credits page, you can disable the display of the Blogophonic attribution text in the footer by changing this configuration variable:
+
+```toml
+# hide/show footer attribution text
+attributionInFooter = false
+```
 
 ## Page Configuration
 
@@ -114,24 +117,38 @@ show_disqus_comments: false # see disqusShortname in site config
 
 #### Blog Post
 
-In the front matter of a blog post, along with things you'd expect like title, subtitle, excerpt, and author, there are two choices for `layout`: `single` or `single-sidebar`. In the `images` array, the first one will be used as the blog post thumbnail in the list, so it's best to name the file as such for clarity. **Note:** the Open Graph internal template will use up to six of these images in the page metadata for social sharing.
+In the front matter of a blog post, along with things you'd expect like title, subtitle, excerpt, and author, there are two choices for `layout`: `single` or `single-sidebar`.
+
+This theme now uses page bundles, and blog page fontmatter can contain a list of resources that are a part of the page. If you create a resource with the name "thumbnail" then that image will be used as a blog post thumbnail in lists.
+
+**Note:** the Open Graph internal template will use up to six of these images in the page metadata for social sharing.
 
 ```yaml
-images:
-  - /blog/assets/built-in-contact-form-thumbnail.png
-  - /blog/assets/built-in-contact-form-feature.png
+resources:
+  - src: built-in-contact-form-thumbnail.png
+    name: thumbnail
 layout: single # single or single-sidebar
 ```
 
 #### Sidebar Content
 
-When you use either the `list-sidebar` or `single-sidebar` layout in your blog, the sidebar contents are controlled with a data file (`/data/sidebar_content.yaml`) containing a set of front matter for each sidebar. In this file you can specify an image, title, description, author name (good for groups or teams), a text link and a boolean for the ad unit. **Note:** the code for the actual ad that you may choose to display will live in the layouts themselves, not in this data file.
+Unlike the original, this theme now supports two styles of sidebar content:
+
+1. Blog list sidebar
+2. Blog post sidebar
+
+##### Blog List Sidebar
+
+When you use the `list-sidebar` layout in your blog, the sidebar contents are static and controlled with a data file (`/data/sidebar_content.yaml`) containing a set of front matter for the blog list sidebar. In this file you can specify an image, title, description, author name (good for groups or teams), a text link and a boolean for the ad unit. **Note:** the code for the actual ad that you may choose to display will live in the layouts themselves, not in this data file.
 
 ```yaml
 text_link_label: View Recent Posts
 text_link_url: /blog
 show_sidebar_adunit: true # show ad container
 ```
+
+##### Blog Post Sidebar
+When you use the `single-sidebar` layout in your blog page, the sidebar is dynamic and its contents are populated with the content of your blog post. The post title, subtitle, author, date, and other information will be displayed in the sidebar, with the main post content starting directly in the main section. I found this approach makes the sidebar layout substantially more useful, so I made it the new default behavior.
 
 ### Contact Page
 
