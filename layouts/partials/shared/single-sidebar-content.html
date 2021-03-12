@@ -4,7 +4,10 @@
   <h1 class="f1 lh-solid measure-narrow mb3">{{ .Title }}</h1>{{ end }}
   {{ if .Params.subtitle }}<h4 class="f4 mt0 mb4 lh-title measure">{{ .Params.subtitle }}</h4>{{ end }}
   {{ if .CurrentSection.Params.show_author_byline }}<p class="f6 measure lh-copy mv1">{{ if .Params.author }}{{ .Params.author }}{{ end }}{{end}}</p>
-  {{ if .CurrentSection.Params.show_post_date }}<p class="f7 db mt0 mb5 ttu">{{ .PublishDate.Format "January 2, 2006" }}</p>{{ end }}
+  {{ if .CurrentSection.Params.show_post_date }}<p class="f7 db mt0 mb4 ttu">{{ .PublishDate.Format "January 2, 2006" }}</p>{{ end }}
+  <div class="">
+    {{ partial "shared/social-sharing.html" . }}
+  </div>
   {{ with .Params.categories }}
   <dl class="f6 lh-copy">
     <dt class="fw7">Categories:</dt>

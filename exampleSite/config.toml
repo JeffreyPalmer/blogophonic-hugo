@@ -53,6 +53,12 @@ theme = ["blogophonic-hugo-theme"]
   # show/hide the attribution text in footer
   attributionInFooter = true
 
+[params.social.share]
+  facebook = false
+  linkedin = false
+  twitter = false
+  email = false
+
 [social]
   # social accounts (username only)
   facebook = "formspree"

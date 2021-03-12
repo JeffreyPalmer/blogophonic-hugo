@@ -12,4 +12,5 @@ series:
 tags:
 categories:
 layout: single # single or single-sidebar
+socialshare: false
 ---
