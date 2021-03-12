@@ -13,4 +13,5 @@ tags:
 categories:
 layout: single # single or single-sidebar
 socialshare: false
+hashtags: # hashtags will be added to twitter social sharing link
 ---
