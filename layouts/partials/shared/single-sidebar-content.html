@@ -28,7 +28,8 @@
   {{ end }}
   <dl class="f6 lh-copy">
     <dt class="fw7">See Also:</dt>
-    {{ range first 3 ( where ( where .Site.Pages.ByDate.Reverse ".Params.tags" "intersect" .Params.tags ) "Permalink" "!=" .Permalink ) }}
+    {{ $related := (where (.Site.RegularPages.Related .) "Type" "blog") | first 3 }}
+    {{ range $related }}
     <dd class="fw5 ml0"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
     {{ end }}
   </dl>
