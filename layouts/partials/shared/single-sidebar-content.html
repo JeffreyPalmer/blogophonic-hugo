@@ -1,44 +1,45 @@
 {{ if .Params.Image }}<img src="{{ .image }}" class="db ma0">{{ end }}
-<div class="blog-info pa4">
-  {{ if .Title }}
-  <h1 class="f1 lh-solid measure-narrow mb3">{{ .Title }}</h1>{{ end }}
-  {{ if .Params.subtitle }}<h4 class="f4 mt0 mb4 lh-title measure">{{ .Params.subtitle }}</h4>{{ end }}
-  {{ if .CurrentSection.Params.show_author_byline }}<p class="f6 measure lh-copy mv1">{{ if .Params.author }}{{ .Params.author }}{{ end }}{{end}}</p>
-  {{ if .CurrentSection.Params.show_post_date }}<p class="f7 db mt0 mb4 ttu">{{ .PublishDate.Format "January 2, 2006" }}</p>{{ end }}
-  <div class="">
-    {{ partial "shared/social-sharing.html" . }}
-  </div>
-  {{ with .Params.categories }}
-  <dl class="f6 lh-copy">
-    <dt class="fw7">Categories:</dt>
-    <dd class="fw5 ml0">{{ range . }} <a href="{{ "categories/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</dd>
-  </dl>
-  {{ end }}
-  {{ with .Params.series }}
-  <dl class="f6 lh-copy">
-    <dt class="fw7">Series:</dt>
-    <dd class="fw5 ml0">{{ range . }} <a href="{{ "series/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</dd>
-  </dl>
-  {{ end }}
-  {{ with .Params.tags }}
-  <dl class="f6 lh-copy">
-    <dt class="fw7">Tags:</dt>
-    <dd class="fw5 ml0">{{ range . }} <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</dd>
-  </dl>
-  {{ end }}
-  <dl class="f6 lh-copy">
-    <dt class="fw7">See Also:</dt>
-    {{ $related := (where (.Site.RegularPages.Related .) "Type" "blog") | first 3 }}
-    {{ range $related }}
-    <dd class="fw5 ml0"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
+<div class="blog-info">
+  <div class="pa4">
+    {{ if .Title }}
+    <h1 class="f1 lh-solid measure-narrow mb3">{{ .Title }}</h1>{{ end }}
+    {{ if .Params.subtitle }}<h4 class="f4 mt0 mb4 lh-title measure">{{ .Params.subtitle }}</h4>{{ end }}
+    {{ if .CurrentSection.Params.show_author_byline }}<p class="f6 measure lh-copy mv1">{{ if .Params.author }}{{ .Params.author }}{{ end }}{{end}}</p>
+    {{ if .CurrentSection.Params.show_post_date }}<p class="f7 db mt0 mb4 ttu">{{ .PublishDate.Format "January 2, 2006" }}</p>{{ end }}
+    <div class="">
+      {{ partial "shared/social-sharing.html" . }}
+    </div>
+    {{ with .Params.categories }}
+    <dl class="f6 lh-copy">
+      <dt class="fw7">Categories:</dt>
+      <dd class="fw5 ml0">{{ range . }} <a href="{{ "categories/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</dd>
+    </dl>
     {{ end }}
-  </dl>
-</div>
-
-{{ if .Params.show_sidebar_adunit }}
-<div class="ad-unit pa4">
-  {{ range $.Site.Data.ads }}
-  <p class="f7 measure-narrow lh-copy mv0"><span class="b ttu db">{{ .title }}</span><span>{{ .body | markdownify }}</span></p>
+    {{ with .Params.series }}
+    <dl class="f6 lh-copy">
+      <dt class="fw7">Series:</dt>
+      <dd class="fw5 ml0">{{ range . }} <a href="{{ "series/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</dd>
+    </dl>
+    {{ end }}
+    {{ with .Params.tags }}
+    <dl class="f6 lh-copy">
+      <dt class="fw7">Tags:</dt>
+      <dd class="fw5 ml0">{{ range . }} <a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a> {{ end }}</dd>
+    </dl>
+    {{ end }}
+    <dl class="f6 lh-copy">
+      <dt class="fw7">See Also:</dt>
+      {{ $related := (where (.Site.RegularPages.Related .) "Type" "blog") | first 3 }}
+      {{ range $related }}
+      <dd class="fw5 ml0"><a href="{{ .RelPermalink }}">{{ .Title }}</a></dd>
+      {{ end }}
+    </dl>
+  </div>
+  {{ if .Params.show_sidebar_adunit }}
+    <div class="ad-unit pa4">
+      {{ range $.Site.Data.ads }}
+      <p class="f7 measure-narrow lh-copy mv0"><span class="b ttu db">{{ .title }}</span><span>{{ .body | markdownify }}</span></p>
+      {{ end }}
+    </div>
   {{ end }}
 </div>
-{{ end }}
